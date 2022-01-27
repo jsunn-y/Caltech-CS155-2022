@@ -75,7 +75,11 @@ Performing gradient descent on any of these loss functions will train a model to
 Squared loss is often a terrible choice of loss function to train on for classification problems.  Why?
 
 \begin{solution}
+<<<<<<< HEAD
   For a classification problem, the squared loss landscape is non-convex. Thus, gradient descent will not always converge to the correct solution. This loss function is also biased towards the outliers.
+=======
+
+>>>>>>> dfa32f64015bd3a605462d1789b851a995766131
 \end{solution}
 
 \problem[9]
@@ -91,6 +95,7 @@ For each loss function/model, plot the data points as a scatter plot and overlay
 What differences do you see in the decision boundaries learned using the different loss functions? Provide a qualitative explanation for this behavior.
 
 \begin{solution}
+<<<<<<< HEAD
   \url{https://colab.research.google.com/drive/1w02zDKYTBq8EoSJIUb3EsAH2dQBclLAf}
   \begin{center}
     \includegraphics[width=.8\textwidth]{ridge.pdf}
@@ -98,6 +103,9 @@ What differences do you see in the decision boundaries learned using the differe
   \begin{center}
     \includegraphics[width=.8\textwidth]{logistic.pdf}
   \end{center}
+=======
+
+>>>>>>> dfa32f64015bd3a605462d1789b851a995766131
 \end{solution}
 
 \problem[9]
@@ -106,7 +114,11 @@ Leaving squared loss behind, let's focus on log loss and hinge loss. Consider th
 Given a linear model with weights $w_0 = 0, w_1 = 1, w_2 = 0$ (where $w_0$ corresponds to the bias term), compute the gradients $\nabla_{w}L_{\text{hinge}}$ and $\nabla_{w}L_{\text{log}}$ of the hinge loss and log loss, and calculate their values for each point in S.
 
 \begin{center}
+<<<<<<< HEAD
   \includegraphics[width=.8\textwidth]{./images/image.jpg}
+=======
+  \includegraphics[width=.8\textwidth]{./plots/SimpleDatasetWithDecisionBoundary.png}
+>>>>>>> dfa32f64015bd3a605462d1789b851a995766131
 \end{center}
 \begin{small}
   The example dataset and decision boundary described above. Positive instances are
@@ -114,6 +126,7 @@ Given a linear model with weights $w_0 = 0, w_1 = 1, w_2 = 0$ (where $w_0$ corre
 \end{small}
 
 \begin{solution}
+<<<<<<< HEAD
   \begin{equation}
     \nabla_{w}L_{\text{log}} = \frac{-y\mathbf{x}}{1+e^{-y\mathbf{w}^T\mathbf{x}}}
   \end{equation}
@@ -144,6 +157,8 @@ Log Loss Gradient:
 [ 0.04742587 -0.14227762  0.04742587]
 Hinge Loss Gradient:
 [0. 0. 0.]
+=======
+>>>>>>> dfa32f64015bd3a605462d1789b851a995766131
 
 \end{solution}
 
@@ -151,7 +166,11 @@ Hinge Loss Gradient:
 Compare the gradients resulting from log loss to those resulting from hinge loss. When (if ever) will these gradients converge to 0? For a linearly separable dataset, is there any way to reduce or altogether eliminate training error without changing the decision boundary?
 
 \begin{solution}
+<<<<<<< HEAD
   The gradients for the log loss function will never converge to zero. The gradients are sigmoidal, so they will asymptote to zero but never reach zero exactly. On the other hand, the gradients for the hinge loss function become zero as soon as $y\mathbf{w}^T\mathbf{x} > 1$.
+=======
+
+>>>>>>> dfa32f64015bd3a605462d1789b851a995766131
 \end{solution}
 
 \problem[5]
@@ -160,7 +179,11 @@ Based on your answer to the previous question, explain why for an SVM to be a ``
 (You don't need to prove that minimizing $L_\text{hinge} + \lambda\Vert w \Vert^2$ results in a maximum margin classifier; just show that the additional penalty term addresses the issues of minimizing just $L_\text{hinge}$.)
 
 \begin{solution}
+<<<<<<< HEAD
   The hinge loss is not a max margin classifier because the gradients become zero as soon as all of the points are correctly classified, as shown in solution C. Thus, the optimization will terminate early. The regularization term ensures that the gradients will not go to zero prematurely, thus becoming a max margin classifier. 
+=======
+
+>>>>>>> dfa32f64015bd3a605462d1789b851a995766131
 \end{solution}
 
 \newpage
@@ -175,7 +198,11 @@ Will adding a penalty term always decrease the out-of-sample errors?
 Please justify your answers. Think about the case when there is over-fitting while training the model.
 
 \begin{solution}
+<<<<<<< HEAD
   The regularization term will never decrease the training error because the regularization factor $\lambda$ and the norm are positive values. The penalty term does not necessarily always decrease the out-of-sample errors. In the case where the regularization term is too large, the weights will all become close to zero, which is most likely not a good fit to the data (high bias).
+=======
+ 
+>>>>>>> dfa32f64015bd3a605462d1789b851a995766131
 \end{solution}
 
 \problem[4]
@@ -184,7 +211,11 @@ In fact, $\ell_0$ regularization (using $\ell_0$ norm instead of $\ell_1$ or $\e
 However, it is rarely used.  Why?
 
 \begin{solution}
+<<<<<<< HEAD
   The $\ell_0$ norm is non-differentiable, so it cannot be used with gradient descent. Furthermore, it is very punishing, so it would only be useful in high-dimensional problems where extreme sparsity is desired.
+=======
+
+>>>>>>> dfa32f64015bd3a605462d1789b851a995766131
 \end{solution}
 
 \subsection{Implementation of \texorpdfstring{$\ell_2$}{L2} regularization:}
@@ -228,38 +259,58 @@ Do the following for both training data sets (wine\_training1.txt and wine\_trai
  You should end up with three plots, with two series (one for wine\_training1.txt and one for wine\_training2.txt) on each plot. Note that the $E_\text{in}$ and $E_\text{out}$ values you plot should not include the regularization penalty --- the penalty is only included when performing gradient descent.
 
 \begin{solution}
+<<<<<<< HEAD
   \url{https://colab.research.google.com/drive/1WxjpRfV9HYWwGyLJEuzsyYr2Y1ERSxIg#scrollTo=JGkf7kLc3FYW}
   \begin{center}
     \includegraphics[width=.47\textwidth]{prob2.pdf}
   \end{center}
+=======
+
+>>>>>>> dfa32f64015bd3a605462d1789b851a995766131
 \end{solution}
 
 \problem[4]
 Given that the data in wine\_training2.txt is a subset of the data in wine\_training1.txt, compare errors (training and test) resulting from training with wine\_training1.txt (100 data points) versus wine\_training2.txt (40 data points). Briefly explain the differences.
 
 \begin{solution}
+<<<<<<< HEAD
   While the average training error per sample is similar for the two datasets, the test errors for set 1 are lower, especially for small values of the regularization parameter. This makes sense, because training on a larger dataset will generalize better to the unseen test set.
+=======
+
+>>>>>>> dfa32f64015bd3a605462d1789b851a995766131
 \end{solution}
 
 \problem[4]
 Briefly explain the qualitative behavior (i.e. over-fitting and under-fitting) of the training and test errors with different $\lambda$s while training with data in wine\_training1.txt.
 
 \begin{solution}
+<<<<<<< HEAD
   For large $\lambda > 1$, there is evidence of underfitting as the train and test error are both high. The regularization penalty is too high, which prevents the model from learning the data. For small $\lambda < 1e-2$, there is evidence of overfitting, as the test error is higher than that of slightly larger values of $\lambda$.
+=======
+
+>>>>>>> dfa32f64015bd3a605462d1789b851a995766131
 \end{solution}
 
 \problem[4]
 Briefly explain the qualitative behavior of the $\ell_2$ norm of $\textbf{w}$ with different $\lambda$s while training with the data in wine\_training1.txt.
 
 \begin{solution}
+<<<<<<< HEAD
  The $\ell_2$ norm of $\textbf{w}$ decreases as $\lambda$ is increased. This makes sense because the regularized loss function penalizes large values in $\textbf{w}$, and $\lambda$ determines the magnitude of that penalty.
+=======
+   
+>>>>>>> dfa32f64015bd3a605462d1789b851a995766131
 \end{solution}
 
 \problem[4]
 If the model were trained with wine\_training2.txt, which $\lambda$ would you choose to train your final model? Why?
 
 \begin{solution}
+<<<<<<< HEAD
   I would choose $\lambda = 0.0315$, because this corresponds to the lowest value of the average normalized test error (0.1223).
+=======
+  
+>>>>>>> dfa32f64015bd3a605462d1789b851a995766131
 \end{solution}
 
 % Question 2
@@ -296,6 +347,7 @@ What happens to the number of model weights that are exactly zero with Ridge reg
 }
 
 \begin{solution}
+<<<<<<< HEAD
   \url{https://colab.research.google.com/drive/1zArPjMh7TJEn1epv2cTRxZckq3XC2mj8}
   \begin{center}
     \includegraphics[width=.7\textwidth]{lasso.pdf}
@@ -305,6 +357,9 @@ What happens to the number of model weights that are exactly zero with Ridge reg
     \includegraphics[width=.7\textwidth]{ridge2.pdf}
   \end{center}
   For the lasso model, as the regularization paremeter increases, more and more of the model weights become exactly zero, until they are all zero. This makes sense since the $\ell_1$ norm encourages sparsity in the features. For the ridge model, the weights decrease, but none of them go to zero.
+=======
+
+>>>>>>> dfa32f64015bd3a605462d1789b851a995766131
 \end{solution}
 
 \problem[9]
@@ -319,6 +374,7 @@ where $\mathbf{x} \in \mathbb{R}^{N}$ is the vector of datapoints and $\mathbf{y
 This is linear regression with Lasso regularization.
 
 \begin{subsolution}
+<<<<<<< HEAD
   \begin{equation}
     \partial_w(\Vert\mathbf{y} - \mathbf{x}w\Vert^2 + \lambda\Vert w\Vert_1) = -2\mathbf{x}^T\mathbf{y}+2\mathbf{x}^T\mathbf{x}w+\lambda \frac{w}{|w|}= 0
   \end{equation}
@@ -328,13 +384,20 @@ This is linear regression with Lasso regularization.
   \begin{equation}
    w = \frac{\mathbf{x}^T\mathbf{y}}{\mathbf{x}^T\mathbf{x}}-\frac{\lambda}{2\mathbf{x}^T\mathbf{x}}\frac{w}{|w|}
  \end{equation}
+=======
+ 
+>>>>>>> dfa32f64015bd3a605462d1789b851a995766131
 \end{subsolution}
 
 \subproblem
 In this question, we continue to consider Lasso regularization in 1-dimension. Now, suppose that $w \neq 0$ when $\lambda = 0$. Does there exist a value for $\lambda$ such that $w = 0$? If so, what is the smallest such value?
 
 \begin{subsolution}
+<<<<<<< HEAD
   $w=0$ when $\lambda \ge 2\mathbf{x}^T\mathbf{y}$.
+=======
+  
+>>>>>>> dfa32f64015bd3a605462d1789b851a995766131
 \end{subsolution}
 
 \problem[9]
@@ -347,6 +410,7 @@ where $\mathbf{X} \in \mathbb{R}^{N \times d}$ is the matrix of datapoints and $
 This is linear regression with Ridge regularization.
 
 \begin{subsolution}
+<<<<<<< HEAD
   To find the minimum, we want to solve:
   \begin{equation}
   \frac{\partial}{\partial \mathbf{w}} (\Vert\mathbf{y} - \mathbf{X}\mathbf{w}\Vert^2 + \lambda\Vert\mathbf{w}\Vert_2^2 ) = 0
@@ -369,12 +433,19 @@ This is linear regression with Ridge regularization.
   \end{equation}
 
   
+=======
+ 
+>>>>>>> dfa32f64015bd3a605462d1789b851a995766131
 \end{subsolution}
 
 \subproblem In this question, we consider Ridge regularization in 1-dimension. Suppose that $w \neq 0$ when $\lambda = 0$. Does there exist a value for $\lambda > 0$ such that $w = 0$? If so, what is the smallest such value?
 
 \begin{subsolution}
+<<<<<<< HEAD
   No, based on the formula given above, in 1D, if $\lambda > 0$, then both x and y must be zero for w to be zero, which is a trivial solution.
+=======
+
+>>>>>>> dfa32f64015bd3a605462d1789b851a995766131
 \end{subsolution}
 
 \end{document}

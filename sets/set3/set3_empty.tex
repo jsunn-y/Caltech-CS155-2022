@@ -83,9 +83,13 @@ without error, the stopping criterion will be no impurity in the leaves.
 Submit a drawing of your tree showing the impurity reduction yielded by each split (including root) in your decision tree.
 
 \begin{solution}
+<<<<<<< HEAD
     \begin{center}
         \includegraphics[width=0.9\textwidth]{d4.jpeg}
     \end{center}
+=======
+
+>>>>>>> dfa32f64015bd3a605462d1789b851a995766131
 
 \end{solution}
 
@@ -93,8 +97,12 @@ Submit a drawing of your tree showing the impurity reduction yielded by each spl
 Compared to a linear classifier, is a decision tree always preferred for classification problems? If not, draw a simple 2-D dataset that can be perfectly classified by a simple linear classifier but which requires an overly complex decision tree to perfectly classify.
 
 \begin{solution}
+<<<<<<< HEAD
     \includegraphics[width=0.7\textwidth]{d2.jpeg}
     A decision tree is not always better than a linear classifier, as exemplified above.
+=======
+  
+>>>>>>> dfa32f64015bd3a605462d1789b851a995766131
 \end{solution}
 
 \problem[15]
@@ -117,6 +125,7 @@ Is there any impurity measure (i.e. any function that maps the data points under
 justify your answer.
 
 \begin{solution}
+<<<<<<< HEAD
     \begin{center}
         \includegraphics[width=0.7\textwidth]{d1.jpeg}] \newline
         The classification error for the splits above is 50\%.
@@ -125,6 +134,9 @@ justify your answer.
     \end{center}
     
     Taking inspiration from the way that the points are organized in the figure above, the 100 pts could be organized in some sort of alternating pattern along every dimension for difficult classification. At a minimum, each internal node would help correctly classify exactly one additional sample, except for the last one, which would classify the two remaining samples. Thus, in the worst case, there would be 99 internal nodes.
+=======
+
+>>>>>>> dfa32f64015bd3a605462d1789b851a995766131
 \end{solution}
 
 \problem[4] Suppose in top-down greedy induction we want to split a leaf node that contains N data points composed of
@@ -134,7 +146,11 @@ complexity (big-O in terms of N and D) of the number of possible splits we must 
 Note: Recall that at each node-splitting step in training a DT, you must consider all possible splits that you can make. While there are an infinite number of possible decision boundaries since we are using continuous features, there are not an infinite number of boundaries that result in unique child sets (which is what we mean by ``split'').
 
 \begin{solution}
+<<<<<<< HEAD
    The worst case scenario occurs when all the dimensions are independent (there are no correlations in the data between dimensions). In each dimension, there would be on the order of N unique splits thus the number of splits to be considered would scale as D*N.
+=======
+   
+>>>>>>> dfa32f64015bd3a605462d1789b851a995766131
 \end{solution}
 
 
@@ -161,10 +177,14 @@ Choose one of the following from i or ii:
 ii. Train a decision tree classifier using Gini as the impurity measure and maximal tree depth as early stopping criterion. Try different tree depths from 2 to 20 in increments of 1. Then, on a single plot, plot both training and test classification error versus tree depth. To do this, fill in the \texttt{eval_tree_based_model_max_depth} function in the code template for this problem.
 
 \begin{solution}
+<<<<<<< HEAD
     \url{https://colab.research.google.com/drive/1d5_xyYNxEy9TbP0uPtmKEZ_z69R3b2DJ#scrollTo=yli92gNpDTKb}
     \begin{center}
         \includegraphics[width=0.7\textwidth]{fig1.pdf}
     \end{center}
+=======
+ 
+>>>>>>> dfa32f64015bd3a605462d1789b851a995766131
 \end{solution}
 
 \problem[6]
@@ -172,7 +192,11 @@ For either the minimal leaf node size or maximum depth parameters in the previou
 Please justify your answer based on the plot you derived.
 
 \begin{solution}
+<<<<<<< HEAD
     I will choose to analyze the minimal leaf node size. A minimum node size of around 12 minimizes the testing error. As we decrease the minimum node size, the model does not stop training as early, thus the training error decreases. When we stop training too early (minimum node size = 25), the test and train errors are both high due to high bias. When we stop the training too late (minimum node size = 1), the model is overfitting with high variance, as exemplified by low train error and high test error.
+=======
+   
+>>>>>>> dfa32f64015bd3a605462d1789b851a995766131
 \end{solution}
 
 \indent\problem[4] Choose one of the following from i or ii: \smallskip 
@@ -183,9 +207,13 @@ leaf node size.
 ii. Train a random forest classifier using Gini as the impurity measure, maximal tree depth as early stopping criterion, and 1,000 trees in the forest. Try different tree depths from 2 to 20 in increments of 1. Then, on a single plot, plot both training and test classification error versus tree depth.
 
 \begin{solution}
+<<<<<<< HEAD
     \begin{center}
         \includegraphics[width=0.7\textwidth]{fig3.pdf}
     \end{center}
+=======
+
+>>>>>>> dfa32f64015bd3a605462d1789b851a995766131
 \end{solution}
 
 \problem[6]
@@ -193,29 +221,45 @@ For either the minimal leaf node size or maximum depth parameters tested, which 
 Please justify your answer based on the plot you derived.
 
 \begin{solution}
+<<<<<<< HEAD
     Analyzing the minimal leaf node size, we can make the same conclusions as already described above. However, the mininum node size of around 19 seems to minimize the test error.
+=======
+
+>>>>>>> dfa32f64015bd3a605462d1789b851a995766131
 \end{solution}
 
 \problem[4]
 Do you observe any differences between the curves for the random forest and decision tree plots? If so, explain what could account for these differences.
 
 \begin{solution}
+<<<<<<< HEAD
     The random forest models generally have lower test error due to reduced bias and reduced variance from the bagging and random feature selection procedure. Furthermore, the minimum on the test error is not as pronounced because of variance reduction built-in to the random forest, which reduces the need for variance reduction from minimum node size early stopping.
+=======
+
+>>>>>>> dfa32f64015bd3a605462d1789b851a995766131
 \end{solution}
 
 \textbf{Extra Credit [7 points total] :} \problem\textbf{[5 points, Extra Credit]} Complete the other option for \textbf{Problem A }and \textbf{Problem C}.
 
 \begin{solution}
+<<<<<<< HEAD
     \begin{center}
         \includegraphics[width=0.7\textwidth]{fig2.pdf}
         \includegraphics[width=0.7\textwidth]{fig4.pdf}
     \end{center}
+=======
+   
+>>>>>>> dfa32f64015bd3a605462d1789b851a995766131
 \end{solution}
 
 \problem\textbf{[2 points, Extra Credit] }For the stopping criterion tested in \textbf{Problem F}, which parameter value minimizes the decision tree and random forest test error respectively? 
 
 \begin{solution}
+<<<<<<< HEAD
    The optimal maximum tree depth for the decision tree is 2. The optimal maximum tree depth is 18 for the random forest.
+=======
+   
+>>>>>>> dfa32f64015bd3a605462d1789b851a995766131
 \end{solution}
 
 
@@ -240,7 +284,11 @@ $$E = \frac{1}{N} \sum\limits_{i=1}^N \exp(-y_{i}f(x_i)) \geq \frac{1}{N} \sum\l
 where $\mathbbm{1}$ is the indicator function.
 
 \begin{solution}
+<<<<<<< HEAD
     We will show that $\exp(-y_{i}f(x_i)) \ge \mathbbm{1}(H(x_i) \neq y_i) \forall (x_i, y_i)$. $\mathbbm{1}(H(x_i) \neq y_i)$ is given by 1 if $y_{i}f(x_i) < 0$ and 0 if $y_{i}f(x_i) > 0$. It is easy to show that $\exp(-y_{i}f(x_i)) \ge 1$ for $y_{i}f(x_i) < 0$ and $ > 0$ for $y_{i}f(x_i) > 0$. Thus, the inequality given by the summations is also true.
+=======
+
+>>>>>>> dfa32f64015bd3a605462d1789b851a995766131
 \end{solution}
 
 \problem[3]
@@ -248,6 +296,7 @@ Find $D_{T + 1}(i)$ in terms of $Z_t$, $\alpha_t$, $x_i$, $y_i$, and the classif
 $$Z_t = \sum\limits_{i=1}^N D_t(i) \exp(-\alpha_{t}y_{i}h_{t}(x_{i})).$$
 
 \begin{solution}
+<<<<<<< HEAD
      From lecture:
      \begin{equation}
          D_{t+1}(i) = \frac{D_t(i)\exp{(-\alpha_ty_ih_t(x_i))}}{Z_t}
@@ -261,13 +310,20 @@ $$Z_t = \sum\limits_{i=1}^N D_t(i) \exp(-\alpha_{t}y_{i}h_{t}(x_{i})).$$
         D_{T+1}(i) =\frac{\prod_j^{T}\frac{\exp{(-\alpha_jy_ih_j(x_i))}}{Z_j}}{N}
     \end{equation}
     where N is the number of samples.
+=======
+
+>>>>>>> dfa32f64015bd3a605462d1789b851a995766131
 \end{solution}
 
 \problem[2]
 Show that $E = \sum_{i=1}^N  \frac{1}{N} e^{\sum_{t=1}^T -\alpha_t y_i h_t(x_i)}.$
 
 \begin{solution}
+<<<<<<< HEAD
     By definition, $f(x) = \sum\limits_{i=1}^T \alpha_{t}h_t(x)$. Since $y_i$ does not depend on $t$, we can pull it out of the summation in the expoenent. At the same time, $\frac{1}{N}$ does not depend on $i$, so we can pull that out of the summation, which reduces the expression to $E = \frac{1}{N} \sum\limits_{i=1}^N \exp(-y_{i}f(x_i))$.
+=======
+
+>>>>>>> dfa32f64015bd3a605462d1789b851a995766131
 \end{solution}
 
 \problem[5]
@@ -279,6 +335,7 @@ $$E = \prod\limits_{t=1}^T Z_t.$$
 \end{hint}
 
 \begin{solution}
+<<<<<<< HEAD
     Substituting $D_t(i)$ into $Z_t$:
     \begin{equation}
         Z_t = \frac{1}{N}\sum\limits_{i=1}^N \left(\prod_j^{t-1}\frac{\exp{(-\alpha_jy_ih_j(x_i))}}{Z_j}\right)\exp(-\alpha_{t}y_{i}h_{t}(x_{i}))
@@ -295,6 +352,9 @@ $$E = \prod\limits_{t=1}^T Z_t.$$
     \begin{equation}
         E = \prod_j^{T}Z_j
     \end{equation}
+=======
+
+>>>>>>> dfa32f64015bd3a605462d1789b851a995766131
 \end{solution}
 
 \problem[5]
@@ -304,6 +364,7 @@ where $\epsilon_t$ is the training set error of weak classifier $h_t$ for the we
 \[\epsilon_t = \sum\limits_{i=1}^N D_t(i)\mathbbm1(h_t(x_i) \neq y_i).\]
 
 \begin{solution}
+<<<<<<< HEAD
 	\begin{equation}
         Z_t = \sum\limits_{i=1}^N D_t(i) \exp(-\alpha_{t}y_{i}h_{t}(x_{i}))
     \end{equation}
@@ -329,6 +390,9 @@ where $\epsilon_t$ is the training set error of weak classifier $h_t$ for the we
     \begin{equation}
         Z_t = \exp(-\alpha_t)+(0)\exp(\alpha_t)=\exp(-\alpha_t)
     \end{equation}
+=======
+	
+>>>>>>> dfa32f64015bd3a605462d1789b851a995766131
 \end{solution}
 
 \problem[2]
@@ -338,6 +402,7 @@ AdaBoost:
 $$\alpha_{t}^* = \frac{1}{2} \ln \left(\frac{1 - \epsilon_t}{\epsilon_t} \right).$$
 
 \begin{solution}
+<<<<<<< HEAD
     \begin{equation}
         \frac{\partial Z_t}{\partial\alpha_t} = -(1-\epsilon_t)\exp(-\alpha_t)+\epsilon_t\exp(\alpha_t) = 0
     \end{equation}
@@ -347,6 +412,9 @@ $$\alpha_{t}^* = \frac{1}{2} \ln \left(\frac{1 - \epsilon_t}{\epsilon_t} \right)
     \begin{equation}
         \alpha_t^* = \frac{1}{2}\ln \left(\frac{1 - \epsilon_t}{\epsilon_t} \right)
     \end{equation}
+=======
+	
+>>>>>>> dfa32f64015bd3a605462d1789b851a995766131
 \end{solution}
 
 \begin{problem}[14]
@@ -359,6 +427,7 @@ $$\alpha_{t}^* = \frac{1}{2} \ln \left(\frac{1 - \epsilon_t}{\epsilon_t} \right)
     \end{itemize}
 \end{problem}
 
+<<<<<<< HEAD
 \begin{solution}
     \url{https://colab.research.google.com/drive/1wZignuzs0exrP_8s3koG9WHtWS0GVaik#scrollTo=YpCMtATAD0jm}
     \begin{center}
@@ -369,22 +438,34 @@ $$\alpha_{t}^* = \frac{1}{2} \ln \left(\frac{1 - \epsilon_t}{\epsilon_t} \right)
     \end{center}
 \end{solution}
 
+=======
+>>>>>>> dfa32f64015bd3a605462d1789b851a995766131
 \begin{problem}[2]
     Describe and explain the behaviour of the loss curves for gradient boosting and for AdaBoost. You should consider two kinds of behaviours: the smoothness of the curves and the final values that the curves approach.
 \end{problem}
 
 \begin{solution}
+<<<<<<< HEAD
   Gradient boosting approaches a much lower training loss compared to adaboost, but adaboost achieves a lower test loss. Adaboost is a better model for this classification problem because the residuals in gradient boosting make more sense for regression problems. There is also evidence of overfitting in the gradient boosting model, as the test loss increases after a certain number of functions are fit.
   
   The gradient boosting loss curves are much smoother than those of adaboost. This is because in adaboost, the weights will jump back and forth as a point alternates between being correctly and incorrectly classified, whereas in gradient boosting it uses continuous regression values.
+=======
+  
+>>>>>>> dfa32f64015bd3a605462d1789b851a995766131
 \end{solution}
 
 \begin{problem}[2]
     Compare the final loss values of the two models. Which performed better on the classification dataset?
 \end{problem}
+<<<<<<< HEAD
     
 \begin{solution}
     Adaboost performed better for classification on the test dataset.
+=======
+
+\begin{solution}
+  
+>>>>>>> dfa32f64015bd3a605462d1789b851a995766131
 \end{solution}
 
 \begin{problem}[2]
@@ -394,7 +475,11 @@ $$\alpha_{t}^* = \frac{1}{2} \ln \left(\frac{1 - \epsilon_t}{\epsilon_t} \right)
     Watch how the dataset weights change across time in the animation.
 \end{hint}
 \begin{solution}
+<<<<<<< HEAD
     The weights are the largest for misclassified pts (those on the border of the spiral), while the weights are the smallest for consistently correctly classified pts (those that are towards the center of the spiral).
+=======
+   
+>>>>>>> dfa32f64015bd3a605462d1789b851a995766131
 \end{solution}
 
 \end{document}
