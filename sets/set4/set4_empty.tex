@@ -84,7 +84,7 @@ Fit the neural network at \href{http://playground.tensorflow.org/#activation=rel
 Give a mathematical justification, based on what you know about the backpropagation algorithm and the ReLU function, for the difference in the performance of the two networks.
 
 \begin{subsolution}
-  In the first model, the weights are intialized to non-zero values, thus it is able to train properly. In the second model, the weights are all intialized to zero. Thus, all of the outputs of each unit will be zero, which remains zero when activated through ReLU. During backpropogation, all the gradients will be zero because the derivative of the ReLU acitvation is 0 in this region, thus the weights will not be update and they will remain zero, which leads to poor performance.
+  In the first model, the weights are intialized to non-zero values, thus it is able to train properly. In the second model, the weights are all intialized to zero. Thus, all of the outputs of each unit will be zero, which remains zero when activated through ReLU. During backpropogation, $s^{(L)} = \mathbf{W}^{(L)^T} x ^{(L-1)}$; thus the gradient, $\frac{\partial s^{(L)}}{\partial \mathbf{x}^{(L)}} = \mathbf{W}^{(L)}$, is zero if all the weights are zero. The inverse of this is part of the backpropogation chain rule, thus, the total gradient $(\frac{\partial \mathcal{L}}{\partial \mathbf{W}^{(L)}})$ will be zero, and the weights will not change. As a result, the model will not train.
 \end{subsolution}
 
 \begin{problem}[5]
@@ -97,7 +97,7 @@ Explain the differences in the models learned, and the speed at which they were 
 
 
 \begin{subsolution}
-  The first model learns a model with much higher performance, in fewer epochs than the second model. This occurs because when all the weights are initialized to the same value, all of the units will do the same thing, as exemplified by the calcualted weights being equal for all units in a given layer. This prevents the model from fitting correctly, and also causes this model to get stuck in a local minimum with low performance.
+  The models in part (B, sigmoid) converge to a smoother boundary compared to the the models in part (A, ReLU). This likely results from the fact that the sigmoid is a differentiable activation function. Even though the model initialized to zero weights can train with the sigmoid activaiton, all of the units will do the same thing, as exemplified by the calcualted weights being equal for all units in a given layer. This prevents the model from fitting correctly, and also causes this model to get backed up at local minimum with low performance. Compared to using ReLU, using sigmoid activation results in slower training because it is a saturating function (for very large or small values the gradients become very small.
 \end{subsolution}
 
 
@@ -125,8 +125,7 @@ Draw or describe a fully-connected network with ReLU units that implements the O
 Your network need only produce the correct output when $x_1 \in \{0, 1\}$ and $x_2 \in \{0, 1\}$ (as described in the examples above).
 
 \begin{subsolution}
-
-
+  \includegraphics[width=.49\textwidth]{OR.jpeg}
 \end{subsolution}
 
 \problem Approximating Functions Part 2 \textbf{[8 Points]}
@@ -144,8 +143,8 @@ Explain why a network with fewer layers than the number you specified cannot com
 
 
 \begin{subsolution}
-
-
+  \includegraphics[width=.49\textwidth]{XOR.jpeg} \newline
+  My neural network has two layers (a hidden layer and an output layer). It would not be possible to accomplish the XOR function with a single layer because the XOR function is non-linear, as larger inputs do not necessarily map to larger values (it is not linearly separable). 
 \end{subsolution}
 
 
@@ -210,7 +209,8 @@ Look at the sample code to see how to train your model. You can tinker with the 
 
 
 \begin{solution}
-
+  \href{https://colab.research.google.com/drive/1w4KPxIktQw_hbfgAFxXQtW6b1yfE3S5q#scrollTo=X1xjkeGZSco4}{See code.}
+  Test set: Average loss: 0.0004, Accuracy: 9765/10000 (97.6500)
 \end{solution}
 
 
@@ -219,7 +219,7 @@ Look at the sample code to see how to train your model. You can tinker with the 
  Repeat problem C, except that now you may use 200 hidden units and must build a model with at least 2 hidden layers that achieves test accuracy of at least 0.98.
 
 \begin{solution}
- 
+  Test set: Average loss: 0.0003, Accuracy: 9803/10000 (98.0300)
 \end{solution}
 
  \problem \textbf{Modeling Part 3} \textbf{[6 EC Points]}
@@ -227,7 +227,7 @@ Look at the sample code to see how to train your model. You can tinker with the 
  Repeat problem C, except that now you may use 1000 hidden units and must build a model with at least 3 hidden layers that achieves test accuracy of at least 0.983.
 
 \begin{solution}
-
+  Test set: Average loss: 0.0003, Accuracy: 9845/10000 (98.4500)
 \end{solution}
 
  \newpage
@@ -465,6 +465,7 @@ Do you foresee any problem with this way of validating our hyperparameters? If s
   \end{itemize}
 \end{itemize}
 \begin{solution}
+  \href{https://colab.research.google.com/drive/1DKX1w2Dooo74SW1XdXAAzHA5x38CzYh4#scrollTo=wFwr2t-UZcAT}{See Code}
   \begin{center}
     \begin{tabular}{||c c||} 
      \hline
