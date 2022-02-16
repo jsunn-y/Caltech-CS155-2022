@@ -273,8 +273,7 @@ In your implementation, you should:
 \end{itemize}
 
 \begin{solution}
-
-
+	\href{https://colab.research.google.com/drive/1sr3nFXHRyPBuR50AuB6KvmMLRfFsGCHo}{See Code.}
 \end{solution}
 
 \problem[5]
@@ -295,7 +294,7 @@ Now, repeat problem D, but this time with the regularization term. Use the follo
 		\includegraphics[width=0.7\textwidth]{2e_ein.png}
 		\includegraphics[width=0.7\textwidth]{2e_eout.png}
 	\end{center}
-	In general, the trends are the same as part (d); Ein decreases as K increases, wheras Eout increases as K increases (evidence of overfitting). However, as we increase the regularization penalty, the impact of changing K on both Ein and Eout are dampened (the errors are less affected by K).
+	In general, the trends are the same as part (d); Ein decreases as K increases, wheras Eout increases as K increases (evidence of overfitting). However, as we increase the regularization penalty, the impact of changing K on both Ein and Eout are dampened (the errors are less affected by K). This makes sense, because the regularization parameter penalizes large weights, thus reducing overfitting.
 \end{solution}
 
 
@@ -323,7 +322,7 @@ If we wanted to train this model with naive gradient descent, we'd need to compu
 	\begin{equation}
 		\frac{\partial \log p(w_O|w_I)}{\partial w_0} = \frac{v_{w_I}\exp \left({v'}_{w_O}^T v_{w_I} \right)}{\sum _{w=1}^W\exp \left ({v_w'}^T v_{w_I} \right)}
 	\end{equation}
-	Similarly, we get a similar numerator for $\frac{\partial \log p(w_O|w_I)}{\partial w_1}$. Thus, the computational cost of calculating the dot product in the numerator scales as $O(WD)$ for each $w_O$, $w_I$ pair.
+	Similarly, we get a similar numerator for $\frac{\partial \log p(w_O|w_I)}{\partial w_1}$. Thus, the computational cost of calculating the dot product in the numerator scales as $O(WD)$ for each $w_O$, $w_I$ pair. For a $W \times W$ matrix, the total cost for each gradient calculation would scale as $O(W^3D)$.
 \end{solution}
 
 
@@ -413,7 +412,7 @@ Fill out the TODOs in the skeleton code; specifically, add code where indicated 
 
 
 \begin{solution}
-
+	\href{https://colab.research.google.com/drive/1B-oC31wLqcr-zQsTCtJzVKTQK1y9MEal#scrollTo=h9aBEkZD5wb2}{See Code.}
 \end{solution}
 
 \subsection{Running the code}
