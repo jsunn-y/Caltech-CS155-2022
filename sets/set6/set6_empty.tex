@@ -66,20 +66,32 @@ Now consider a different model, which we will call the `full' model, in which al
 \problem[9] Use the chain rule of probability to factorize $p(x \mid y)$, and let $\theta_{xjc} = p(x_j | x_{1, \ldots, j - 1}, y = c)$. Assuming we store each $\theta_{xjc}$, how many parameters are needed to represent this factorization? Use big-O notation. 
 
 \begin{solution}
+  Using the chain rule of probability:
+  \begin{equation}
+    p(x \mid y) = p(x_D \mid x_{1:D-1}, y = c) p(x_{D-1} \mid x_{1:D-2}, y = c) ... p(x_1 \mid y = c)
+  \end{equation}
+  Substituting the definition of $\theta_{xjc}$,
+  \begin{equation}
+    p(x \mid y) = \theta_{xDc} \theta_{x(D-1)c} ... \theta_{x1c} = \prod_{j=1}^{D} \theta_{xjc}
+  \end{equation}
+  Storing each $\theta_{xjc}$ requires $C*2^{j-1}$ parameters because there are two possibilities for each $x_{1:j-1}$. The sum of the geometric series $\sum_{j=1}^{D} C*2^{j-1} = C*2^D$. Thus the number of parameters needed is of order $O(C \times 2^D)$.
 \end{solution}
 
 \problem[8] Assume we did no such factorization, and just used the joint probability $p(x \mid y = c)$. How many parameters would we need to estimate in order be able to compute $p(x | y = c)$ for arbitrary $x$ and $c$? How does this compare to your answer from the previous part? Again, use big-O notation.
 
 \begin{solution}
+  Computing the joint probability distribution  $p(x \mid y = c)$ also has complexity $O(C \times 2^D)$ because there are $D$ binary features and $C$ classes, which is the same order as the previous part.
 \end{solution}
 
 \problem[4] Assume the number of features $D$ is fixed. Let there be $N$ training cases. If the sample size $N$ is very small, which model (Naive Bayes or full) is likely to give lower test set error, and why?
 
 \begin{solution}
+  When the sample size is small, Naive Bayes is likely to give a lower test set error because conditional independence is a good assumption if there are fewer samples. Learning a full model could lead to overfitting when trying to learn a relationship between different features.
 \end{solution}
 
 \problem[4] If the sample size $N$ is very large, which model (Naive Bayes or full) is likely to give lower test set error, and why?
 \begin{solution} 
+  When the sample size is large, the full model is likely to give a lower test error. Conditional independence is not a good assumption in this case and will lead to underfitting. Given enough data, the model should be able accurately to learn the feature dependencies on each other, which makes the full model a better choice.
 \end{solution}
 
 \problem[8 EC] Assume all the parameter estimates have been computed. What is the computational complexity of making a prediction, i.e. computing $p(y \mid x)$, using Naive Bayes for a single test case? What is the computation complexity of making a prediction with the full model? In justifying your answer for the full model, choose either the implementation in 1A or 1B and state your choice. For the full-model case, assume that converting a $D$-bit vector to an array index is an $O(D)$ operation.  Also, recall that we have assumed a uniform class prior. 
