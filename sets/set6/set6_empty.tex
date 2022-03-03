@@ -97,6 +97,7 @@ Now consider a different model, which we will call the `full' model, in which al
 \problem[8 EC] Assume all the parameter estimates have been computed. What is the computational complexity of making a prediction, i.e. computing $p(y \mid x)$, using Naive Bayes for a single test case? What is the computation complexity of making a prediction with the full model? In justifying your answer for the full model, choose either the implementation in 1A or 1B and state your choice. For the full-model case, assume that converting a $D$-bit vector to an array index is an $O(D)$ operation.  Also, recall that we have assumed a uniform class prior. 
 
 \begin{solution}
+  Not attempted.
 \end{solution}
 
 
@@ -122,8 +123,13 @@ The supplementary data folder also contains one additional file titled \texttt{r
 For each of the six trained HMMs, find the max-probability state sequence for each of the five input sequences at the end of the corresponding file. To complete this problem, you will have to implement the Viterbi algorithm (in \texttt{viterbi()} of the \texttt{HiddenMarkovModel} object). Write your implementation well, as we will be reusing it in a later problem. See the end of problem 2B for a big hint! Note that you do not need to worry about underflow in this part.
 
 In your report, show your results on the 6 files. (Copy-pasting the results of the cell for \texttt{2A} suffices.)
-\begin{solution}
+\begin{solution}   
+  \href{https://colab.research.google.com/drive/1Rrg0gpfLqg3G2KZZfZJjnOL_cBieTled}{Link to code}
+    \begin{center}
+      \includegraphics[width=0.6\textwidth]{prob2a.png}
+    \end{center}
 \end{solution}
+
 \indent\problem[17] % indent for consistency
 For each of the six trained HMMs, find the probabilities of emitting the five input sequences at the end of the corresponding file. To complete this problem, you will have to implement the Forward algorithm and the Backward algorithm. You may assume that the initial state is randomly selected along a uniform distribution (the starting state transition probabilities are defined in \texttt{self.A\_start} in \texttt{HiddenMarkovModel}). Again, write your implementation well, as we will be reusing it in a later problem. \\
 
@@ -144,8 +150,16 @@ Dataset & Emission Sequence & Max-probability State Sequence & Probability of Se
  \\ \hline
  \end{tabular}
 \end{center}
-
+  
 \begin{solution}
+  Forward algorithm:
+  \begin{center}
+  \includegraphics[width=0.6\textwidth]{prob2bi.png}
+  \end{center}
+  Backward algorithm:
+  \begin{center}
+  \includegraphics[width=0.6\textwidth]{prob2bii.png}
+  \end{center}
 \end{solution}
 
 \subsection{HMM Training}
@@ -157,6 +171,9 @@ Use a single M-step to train a supervised Hidden Markov Model on the data in \te
 
 Tip: the \((1,1)\) entry of your transition matrix should be \verb|2.833e-01|, and the \((1,1)\) entry of your observation matrix should be \verb|1.486e-01|.
 \begin{solution}
+  \begin{center}
+    \includegraphics[width=0.9\textwidth]{prob2c.png}
+  \end{center}
 \end{solution}
 \indent\problem[15] % indent for consistency
 Now suppose that Ron has a third roommate who is also interested in how Ron's mood affects his music selection. This roommate is lazier than the other one, so he simply steals the first roommate's data. Unfortunately, he only manages to grab half the data, namely, Ron's choice of music for each of the 2190 days.
@@ -174,11 +191,15 @@ Tips for debugging:
 \end{itemize}
 
 \begin{solution}
+  \begin{center}
+    \includegraphics[width=0.9\textwidth]{prob2d.png}
+  \end{center}
 \end{solution}
 
 \problem[5] How do the transition and emission matrices from 2C and 2D compare? Which do you think provides a more accurate representation of Ron's moods and how they affect his music choices? Justify your answer. Suggest one way that we may be able to improve the method (supervised or unsupervised) that you believe produces the less accurate representation. 
 
 \begin{solution}
+  The transition matrix for 2D generally has smaller values than that from 2C, which menas this matrix is more sparse. The matrices from 2C are a likely a better representation of Ron's moods because it is actually trained with the moods, which makes the transition and observation matrices optimal. However, the unsupervised method is not able to learn from these moods. We could improve the unsupervised model by providing a meaningful prior for the transition or observation matrix, based on how Ron's moods might be distributed.
 \end{solution}
 
 \subsection{Sequence Generation}
@@ -187,6 +208,9 @@ Hidden Markov Models fall under the umbrella of generative models and therefore 
 \problem[5] Run the cell for this problem. The code in the cell loads the trained HMMs from the files titled \texttt{sequence_data0.txt}, $\ldots$ , \texttt{sequence_data5.txt} and uses the six models to probabilistically generate five sequences of emissions from each model, each of length 20. In your report, show your results. 
 
 \begin{solution}
+  \begin{center}
+    \includegraphics[width=0.40\textwidth]{prob2f.png}
+  \end{center}
 \end{solution}
 
 \subsection{Visualization \& Analysis}
@@ -198,18 +222,21 @@ Answer the following problems in the context of the visualizations in the notebo
 \indent\problem[3] % indent for consistency
 What can you say about the sparsity of the trained $A$ and $O$ matrices? How does this sparsity affect the transition and observation behaviour at each state?
 \begin{solution}
+  $A$ and $O$ are both sparse matrices, but $O$ is slightly more sparse since it is larger. The sparsity of $A$ implies that very few states are likely to be achieved from a given state. The sparsity of $O$ implies that very few observations are likely to be generated from a given state.
 \end{solution}
 
 \indent\problem[5] % indent for consistency
 How do the sample emission sentences from the HMM change as the number of hidden states is increased? What happens in the special case where there is only one hidden state? In general, when the number of hidden states is unknown while training an HMM for a fixed observation set, can we increase the training data likelihood by allowing more hidden states?
 
 \begin{solution}
+  As the number of hidden states is increased, the emission sentences become more and more comprehensible, and resembling sentences from the constitution. For example, one hidden state produces a nonsensical sentence: "To the and meet their extend same states to from in any the time any elected states of the by proper they the pursuance for..." but once we have 4 hidden states, the emitted sentences make more sense: "Be of established inhabitant employed and proposing to such seat provided their test faithfully at committed or no one may witnesses of three executive of..." It appears that there may be some overfitting with 16 hidden states, as the sentence is less comprehensible and more skewed to unique words in the constitution. In the special case of one hidden state, the words are basically ordered, because they have the same probability of appearing anywhere in the sentence. In general, we can fit better to the training data by allowing more hidden states because this allows for more possible associations in the $A$ and $O$ matrices, which can only help on the training set.
 \end{solution}
 
 
 \indent\problem[5] % indent for consistency
 Pick a state that you find semantically meaningful, and analyze this state and its wordcloud. What does this state represent? How does this state differ from the other states? Back up your claim with a few key words from the wordcloud.
 \begin{solution}
+  State 3 is semantically meaningful from a grammatical standpoint. While many of the other states are grouped around a certain concept, state 3 seems to be grouped around comparison words. "two," "three," and "every" are the most important words in this state in addition to other numbers and comparison words such as "different."
 \end{solution}
 
 
